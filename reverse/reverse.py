@@ -43,5 +43,21 @@ class LinkedList:
     return False
 
   def reverse_list(self):
-    # TO BE COMPLETED
-    pass
+
+    # my solution from yesterday's breakout room - Yay, it works! Also, there was a minor error I had to fix, so if anyone copies it from cs22_notepad they will be doomed!! Muahaha!
+    if not self.head:
+      return
+    current2 = self.head
+    current = self.head
+    last_swapped = None
+    while current.next_node != last_swapped:
+      while current2.next_node != None and current2.next_node != last_swapped:
+        current2 = current2.next_node
+      a = current2.value
+      current2.value = current.value
+      current.value = a
+      last_swapped = current2
+      if current.next_node == last_swapped:
+        return
+      current = current.next_node
+      current2 = current.next_node
